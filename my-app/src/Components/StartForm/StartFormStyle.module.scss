@@ -1,24 +1,34 @@
+@import "./src/colors.scss";
+@import "./src/mixin";
+
 .startWindow {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  max-width: 432px;
   width: 100%;
-  background-color: var(--start-back);
-  height: 100vh;
+  margin-top: 30px;
 
 
-  .tittle {
+
+  .title {
     text-align: center;
     font-size: 4rem;
-    color: var(--tittle);
+    color: $title;
+    @include mobile-480{
+      font-size: 3rem;
+    }
   }
 
   form {
-    width: 432px;
+    max-width: 432px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
 
     label {
       display: flex;
@@ -27,26 +37,34 @@
       margin-top: 20px;
       font-weight: 700;
       font-size: large;
-      color: var(--label);
+      color: $label;
+      @include mobile-480{
+        flex-direction: column;
+        align-items: center;
+      }
 
       input {
-        box-shadow: var(--input-shadow);
+        box-shadow: $input-shadow;
         width: 100px;
         border-radius: 4px;
         border: 0;
         text-align: center;
+        @include mobile-480{
+          margin-top: 20px;
+        }
+
       }
     }
 
     button {
-      color: var(--btn-text);
-      background-color: var(--btn-back);
-      box-shadow: var(--btn-shadow);
+      color: $btn-text;
+      background-color: $btn-back;
+      box-shadow: $btn-shadow;
       padding: 10px 20px;
       border-radius: 4px;
       border: 0;
-      margin-top: 40px;
       font-weight: 700;
+      margin-top: 30px;
     }
 
   }
