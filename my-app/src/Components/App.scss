@@ -1,6 +1,11 @@
-.app {
+@import "/src/colors";
+@import "/src/mixin";
+
+.App {
   display: flex;
-  justify-content: center;
-  background-color: var(--start-back);
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: $start-back;
 }
 
