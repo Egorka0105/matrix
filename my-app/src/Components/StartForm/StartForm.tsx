@@ -1,5 +1,5 @@
-import { useDispatch } from 'react-redux';
 import { useRef } from 'react';
+import { useDispatch } from 'react-redux';
 import styles from './StartFormStyle.module.scss';
 import { tableCreate } from '../../store/tableCreateSlice';
 
@@ -12,8 +12,8 @@ function StartForm() {
 	function submitHandler(event: any) {
 		event.preventDefault();
 		const initialParam = {
-			columns: inputColumnsRef.current?.value,
 			rows: inputRowsRef.current?.value,
+			columns: inputColumnsRef.current?.value,
 			cells: inputCellsRef.current?.value,
 		};
 		dispatch(tableCreate(initialParam));
@@ -23,14 +23,16 @@ function StartForm() {
 		<div className={styles.startWindow}>
 			<h1 className={styles.title}>Matrix builder</h1>
 			<form onSubmit={submitHandler}>
-				<label htmlFor="columnsInp">
-					Enter the number of columns
-					<input ref={inputColumnsRef} type="number" id="columnsInp" name="columns" required />
-				</label>
 				<label htmlFor="rowsInp">
 					Enter the number of rows
 					<input ref={inputRowsRef} type="number" id="rowsInp" name="rows" required />
 				</label>
+
+				<label htmlFor="columnsInp">
+					Enter the number of columns
+					<input ref={inputColumnsRef} type="number" id="columnsInp" name="columns" required />
+				</label>
+
 				<label htmlFor="cellsInp">
 					Enter the number of cells
 					<input ref={inputCellsRef} type="number" id="cellsInp" name="cells" required />

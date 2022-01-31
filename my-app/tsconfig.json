@@ -2,6 +2,7 @@
   "compilerOptions": {
     "plugins": [
       {
+
         "name": "typescript-plugin-css-modules"
       }
     ],
@@ -11,6 +12,7 @@
       "dom.iterable",
       "esnext"
     ],
+    "noImplicitAny": false,
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,

@@ -1,0 +1,46 @@
+@import "../../../colors";
+
+$tdWidth: 50px;
+.tableHead {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  font-weight: 700;
+  text-align: center;
+
+  .tr {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin: 10px 0;
+
+    .th {
+      max-width: $tdWidth;
+      width: 100%;
+      border-radius: 4px;
+      padding: 10px;
+      margin: 0 10px;
+    }
+
+    .thNumber {
+      max-width: $tdWidth;
+      width: 100%;
+      margin: 0 10px;
+      padding: 10px;
+    }
+
+    .thSum {
+      max-width: 100px;
+      width: 100%;
+      margin: 0 10px;
+      padding: 10px;
+    }
+
+    .empty {
+      max-width: $tdWidth;
+      width: 100%;
+    }
+  }
+}
