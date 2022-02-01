@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
+import cn from 'classnames';
 import logo from '../../../assets/img/removeRow.svg';
 import { removeRow, increment } from '../../../store/tableCreateSlice';
 import styles from './tableBody.module.scss';
@@ -35,14 +36,12 @@ function TableBodyRow({ arr, rowArr, id, checkCells, hideAllCells }) {
 					hideAllCells();
 				}}
 				key={nanoid()}
-				className={styles.td}
 				style={
 					el.percentActive
 						? { background: `linear-gradient(0deg, red ${el.percent}%, white ${el.percent}%)` }
-						: el.nearest
-						? { background: '#f8ff3e' }
-						: { background: '#60F5FAFF' }
+						: undefined
 				}
+				className={cn(styles.td, { [styles.tdNearest]: el.nearest })}
 			>
 				{el.percentActive ? `${el.percent}%` : el.amount}
 			</div>
@@ -56,7 +55,8 @@ function TableBodyRow({ arr, rowArr, id, checkCells, hideAllCells }) {
 			<div className={styles.tdSum} onMouseLeave={() => check(false)} onMouseEnter={() => check(true)}>
 				{findSum(rowArr)}
 			</div>
-			<button className={styles.removeRow} role="button" onClick={() => dispatch(removeRow(id))}>{/* eslint-disable-line */}
+			<button className={styles.removeRow} role="button" type="button" onClick={() => dispatch(removeRow(id))}>{/* eslint-disable-line */}
+
 				<img src={logo} alt="removeRow" height={20} width={20} />
 			</button>
 		</div>

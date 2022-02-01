@@ -67,9 +67,18 @@ $tdWidth: 50px;
       margin: 0 10px;
     }
 
-    .td:hover {
-      background-color: #fc2c2c !important;
+    .td {
+      background-color: $tdBody-back;
+
+      &:hover {
+        background-color: #fc2c2c !important;
+      }
+
+      &.tdNearest {
+        background-color: $nearestBack;
+      }
     }
+
 
     .tdFirst {
       font-weight: 700;

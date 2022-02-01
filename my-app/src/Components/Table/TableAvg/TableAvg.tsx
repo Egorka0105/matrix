@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import styles from './tableAvg.module.scss';
@@ -7,7 +7,7 @@ import { findAvg } from '../../../services/findAvg';
 
 function TableAvg() {
 	const avg = useSelector((state: RootState) => state.tableStore.table);
-	const avgArr = findAvg(avg);
+	const avgArr = useMemo(() => findAvg(avg), [avg]);
 
 	const [avgPercent, setAvgPercent] = useState(avgArr);
 
@@ -38,9 +38,7 @@ function TableAvg() {
 										background: `linear-gradient(0deg, red ${el.percent}%, white ${el.percent}%)`,
 										color: '#000',
 								  }
-								: el.nearest
-								? { background: '#f8ff3e' }
-								: { background: '#56FC7CFF' }
+								: undefined
 						}
 					>
 						{el.percentActive ? `${el.percent}%` : el.amount}
