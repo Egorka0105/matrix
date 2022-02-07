@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, FormEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import styles from './StartFormStyle.module.scss';
 import { tableCreate } from '../../store/tableCreateSlice';
@@ -9,7 +9,7 @@ function StartForm() {
 	const inputRowsRef = useRef<HTMLInputElement>(null);
 	const inputCellsRef = useRef<HTMLInputElement>(null);
 
-	function submitHandler(event: any) {
+	const submitHandler = (event: FormEvent) => {
 		event.preventDefault();
 		const initialParam = {
 			rows: inputRowsRef.current?.value,
@@ -17,25 +17,46 @@ function StartForm() {
 			cells: inputCellsRef.current?.value,
 		};
 		dispatch(tableCreate(initialParam));
-	}
+	};
 
 	return (
-		<div className={styles.startWindow}>
+		<div className={styles.Form}>
 			<h1 className={styles.title}>Matrix builder</h1>
-			<form onSubmit={submitHandler}>
-				<label htmlFor="rowsInp">
+			<form className={styles.Form} onSubmit={submitHandler}>
+				<label className={styles.Form__label} htmlFor="rowsInp">
 					Enter the number of rows
-					<input ref={inputRowsRef} type="number" id="rowsInp" name="rows" required />
+					<input
+						className={styles.Form__input}
+						ref={inputRowsRef}
+						type="number"
+						id="rowsInp"
+						name="rows"
+						required
+					/>
 				</label>
 
-				<label htmlFor="columnsInp">
+				<label className={styles.Form__label} htmlFor="columnsInp">
 					Enter the number of columns
-					<input ref={inputColumnsRef} type="number" id="columnsInp" name="columns" required />
+					<input
+						className={styles.Form__input}
+						ref={inputColumnsRef}
+						type="number"
+						id="columnsInp"
+						name="columns"
+						required
+					/>
 				</label>
 
-				<label htmlFor="cellsInp">
+				<label className={styles.Form__label} htmlFor="cellsInp">
 					Enter the number of cells
-					<input ref={inputCellsRef} type="number" id="cellsInp" name="cells" required />
+					<input
+						className={styles.Form__input}
+						ref={inputCellsRef}
+						type="number"
+						id="cellsInp"
+						name="cells"
+						required
+					/>
 				</label>
 
 				<button type="submit">Create Matrix</button>

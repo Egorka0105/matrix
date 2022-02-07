@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import { obj } from './interfaces';
+import { Cell } from './interfaces';
 import { createPercent } from './createPercent';
 
 interface initObj {
@@ -8,7 +8,7 @@ interface initObj {
 }
 
 export default function createNewRow(initialObj: initObj) {
-	const data: obj[] = [];
+	const data: Cell[] = [];
 
 	for (let i = 0; i < initialObj.rowLength; i += 1) {
 		data.push({

@@ -4,12 +4,15 @@ export interface initialParam {
 	cells: number;
 }
 
-export interface obj {
+export interface ISimpleCell {
 	id: number;
 	amount: number;
 	percentActive: boolean;
 	percent: number;
 	parentRowSum: number;
+}
+
+export interface Cell extends ISimpleCell {
 	key: string;
 	nearest: boolean;
 	delta: number;

@@ -1,11 +1,12 @@
-import React, { useEffect, useMemo, useState } from 'react';
+/* eslint-disable react/function-component-definition */
+import React, { FC, useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import styles from './tableAvg.module.scss';
 import { RootState } from '../../../store/store';
 import { findAvg } from '../../../services/findAvg';
 
-function TableAvg() {
+const TableAvg: FC = () => {
 	const avg = useSelector((state: RootState) => state.tableStore.table);
 	const avgArr = useMemo(() => findAvg(avg), [avg]);
 
@@ -52,6 +53,6 @@ function TableAvg() {
 			<div className={styles.empty} />
 		</div>
 	);
-}
+};
 
 export default TableAvg;

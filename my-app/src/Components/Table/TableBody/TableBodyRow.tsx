@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+/* eslint-disable no-unused-vars */
+import React, { FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
 import cn from 'classnames';
@@ -6,8 +7,18 @@ import logo from '../../../assets/img/removeRow.svg';
 import { removeRow, increment } from '../../../store/tableCreateSlice';
 import styles from './tableBody.module.scss';
 import { findSum } from '../../../services/findSum';
+import { Cell } from '../../../services/interfaces';
 
-function TableBodyRow({ arr, rowArr, id, checkCells, hideAllCells }) {
+type TableBodyRowProps = {
+	arr: Array<Array<Cell>>;
+	rowArr: Array<Cell>;
+	id: number;
+	checkCells: (arr: Array<Array<Cell>>, el: Cell) => void;
+	hideAllCells: () => void;
+};
+
+// eslint-disable-next-line react/function-component-definition
+const TableBodyRow: FC<TableBodyRowProps> = ({ arr, rowArr, id, checkCells, hideAllCells }) => {
 	const dispatch = useDispatch();
 
 	const rowArrClone = rowArr.map(el => {
@@ -61,6 +72,6 @@ function TableBodyRow({ arr, rowArr, id, checkCells, hideAllCells }) {
 			</button>
 		</div>
 	);
-}
+};
 
 export default TableBodyRow;
