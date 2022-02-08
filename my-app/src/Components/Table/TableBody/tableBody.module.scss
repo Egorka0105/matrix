@@ -1,0 +1,85 @@
+@import "src/assets/colors";
+@import "src/assets/animations";
+
+$tdWidth: 50px;
+
+.tableBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+
+  .tr {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+    position: relative;
+
+    .removeRow {
+      max-width: 50px;
+      width: 100%;
+      height: 100%;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      span {
+        display: block;
+        transform: rotate(45deg);
+        transition: .5s ease;
+      }
+
+      &:hover {
+        img {
+          animation: removeRowAnimate;
+          animation-duration: 1s;
+        }
+      }
+    }
+
+    & > div {
+      max-width: $tdWidth;
+      width: 100%;
+      border-radius: 6px;
+      padding: 10px 0;
+      cursor: pointer;
+      font-weight: 700;
+      position: relative;
+      margin: 0 10px;
+    }
+
+    .td {
+      background-color: $tdBody-back;
+
+      &:hover {
+        background-color: #fc2c2c !important;
+      }
+
+      &.tdNearest {
+        background-color: $nearestBack;
+      }
+    }
+
+
+    .tdFirst {
+      font-weight: 700;
+      max-width: $tdWidth;
+      width: 100%;
+    }
+
+    .tdSum {
+      max-width: 100px;
+      width: 100%;
+      cursor: pointer;
+      background-color: $tdBodySum-back;
+      font-weight: 700;
+      padding: 10px;
+      border-radius: 6px;
+      color: $tableSum;
+    }
+  }
+
+}

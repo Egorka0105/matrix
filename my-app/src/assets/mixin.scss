@@ -1,0 +1,33 @@
+@mixin desktop-1200 {
+  @media (max-width: 1200px) {
+    @content
+  }
+}
+
+@mixin laptop-960 {
+  @media (max-width: 960px) {
+    @content
+  }
+}
+
+@mixin tablet-768 {
+  @media (max-width: 768px) {
+    @content
+  }
+}
+
+@mixin mobile-480 {
+  @media (max-width: 480px) {
+    @content
+  }
+}
+
+
+
+@mixin displayFlex ($flex-direction:initial,$horizontal-position:initial,$vertical-position:initial){
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $horizontal-position;
+  align-items: $vertical-position;
+}
+

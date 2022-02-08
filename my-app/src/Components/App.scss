@@ -1,0 +1,9 @@
+@import "../assets/colors";
+@import "../assets/mixin";
+
+.App {
+
+  @include displayFlex(column,center,center);
+  width: 100%;
+  background-color: $start-back;
+}
