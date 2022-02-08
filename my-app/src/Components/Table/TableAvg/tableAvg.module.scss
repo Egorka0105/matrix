@@ -1,10 +1,9 @@
-@import "../../../colors";
+@import "src/assets/colors";
+@import "src/assets/mixin";
 
 $tdWidth: 50px;
 .tableAvg {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  @include displayFlex(row,center);
   width: 100%;
   font-weight: 700;
   text-align: center;
@@ -42,7 +41,8 @@ $tdWidth: 50px;
     font-weight: 700;
     margin: 0 10px;
   }
-  .empty{
+
+  .empty {
     max-width: $tdWidth;
     width: 100%;
   }

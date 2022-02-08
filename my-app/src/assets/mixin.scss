@@ -22,3 +22,12 @@
   }
 }
 
+
+
+@mixin displayFlex ($flex-direction:initial,$horizontal-position:initial,$vertical-position:initial){
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $horizontal-position;
+  align-items: $vertical-position;
+}
+

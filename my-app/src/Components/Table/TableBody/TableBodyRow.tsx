@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
 import cn from 'classnames';
-import logo from '../../../assets/img/removeRow.svg';
-import { removeRow, increment } from '../../../store/tableCreateSlice';
+import { removeRow, increment } from 'store/tableCreateSlice';
+import logo from 'assets/img/removeRow.svg';
+import { findSum } from 'services/findSum';
 import styles from './tableBody.module.scss';
-import { findSum } from '../../../services/findSum';
 
 function TableBodyRow({ arr, rowArr, id, checkCells, hideAllCells }) {
 	const dispatch = useDispatch();
@@ -55,8 +55,8 @@ function TableBodyRow({ arr, rowArr, id, checkCells, hideAllCells }) {
 			<div className={styles.tdSum} onMouseLeave={() => check(false)} onMouseEnter={() => check(true)}>
 				{findSum(rowArr)}
 			</div>
-			<button className={styles.removeRow} role="button" type="button" onClick={() => dispatch(removeRow(id))}>{/* eslint-disable-line */}
-
+			{/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
+			<button className={styles.removeRow} role="button" type="button" onClick={() => dispatch(removeRow(id))}>
 				<img src={logo} alt="removeRow" height={20} width={20} />
 			</button>
 		</div>

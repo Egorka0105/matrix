@@ -1,7 +1,7 @@
-import { obj } from './interfaces';
+import { ICell } from './interfaces';
 import { findSum } from './findSum';
 
-export function createPercent(arr: obj[]) {
+export function createPercent(arr: ICell[]): any {
 	const sum: number = findSum(arr);
 
 	arr.forEach(el => {

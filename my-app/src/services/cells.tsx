@@ -1,9 +1,9 @@
-import { obj } from './interfaces';
+import { ICell } from './interfaces';
 
 export const cells = (arr, currentObj) => {
 	const cloneArr = JSON.parse(JSON.stringify(arr));
 
-	const resultArr: obj[] = [].concat(...cloneArr);
+	const resultArr: ICell[] = [].concat(...cloneArr);
 
 	const final = resultArr.filter(el => currentObj.key !== el.key);
 

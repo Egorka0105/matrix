@@ -1,11 +1,8 @@
-@import "./src/colors.scss";
-@import "./src/mixin";
+@import "src/assets/colors";
+@import "src/assets/mixin";
 
 .startWindow {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+  @include displayFlex(column,center,center);
   max-width: 432px;
   width: 100%;
   margin-top: 30px;
@@ -29,8 +26,7 @@
     margin-bottom: 50px;
 
     label {
-      display: flex;
-      justify-content: space-between;
+      @include displayFlex(row,space-between);
       width: 100%;
       margin-top: 20px;
       font-weight: 700;

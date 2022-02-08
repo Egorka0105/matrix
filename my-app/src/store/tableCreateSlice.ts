@@ -1,17 +1,26 @@
-import { createSlice, Slice, SliceCaseReducers } from '@reduxjs/toolkit';
-import tableCreator from '../services/tableCreator';
-import createNewRow from '../services/createNewRow';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import tableCreator from 'services/tableCreator';
+import createNewRow from 'services/createNewRow';
+import { ICell, IInitialParam, IInitNewCell } from 'services/interfaces';
 
-const table: Slice<any, SliceCaseReducers<any>, string> = createSlice({
+interface initialState {
+	table: ICell[][] | [];
+}
+
+// eslint-disable-next-line no-redeclare
+const initialState: initialState = {
+	table: [],
+};
+
+const table = createSlice({
 	name: 'table',
-	initialState: {
-		table: [],
-	},
+	initialState,
 	reducers: {
-		tableCreate(state, action) {
+		tableCreate(state, action: PayloadAction<IInitialParam>) {
 			state.table = tableCreator(action.payload);
 		},
-		addRow(state, action) {
+		addRow(state, action: PayloadAction<IInitNewCell>) {
+			// @ts-ignore
 			state.table.push(createNewRow(action.payload));
 		},
 		removeRow(state, action) {

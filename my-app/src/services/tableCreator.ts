@@ -1,9 +1,9 @@
 import { nanoid } from 'nanoid';
-import { initialParam, obj } from './interfaces';
+import { IInitialParam, ICell } from './interfaces';
 import { createPercent } from './createPercent';
 
-const tableCreator = function (object: initialParam): obj[][] {
-	const data: any = [];
+const tableCreator = (object: IInitialParam): ICell[][] => {
+	const data: ICell[][] = [];
 	for (let row = 0; row < object.rows; row += 1) {
 		data.push([]);
 		for (let col = 0; col < object.columns; col += 1) {

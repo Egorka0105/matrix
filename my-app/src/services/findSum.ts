@@ -1,6 +1,10 @@
-import { obj } from './interfaces';
+import { ICell, ISimpleCell } from './interfaces';
 
-export const findSum = function (arr: obj[]) {
+export const findSum = (arr: ISimpleCell[] | ICell[]): number => {
 	const initialValue: number = 0;
-	return arr.reduce((accumulator: number, currentValue: obj) => accumulator + currentValue.amount, initialValue);
+	// @ts-ignore
+	return arr.reduce(
+		(accumulator: number, currentValue: ISimpleCell) => accumulator + currentValue.amount,
+		initialValue
+	);
 };

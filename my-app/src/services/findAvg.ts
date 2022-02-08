@@ -1,10 +1,10 @@
-import { obj } from './interfaces';
+import { ICell, ISimpleCell } from './interfaces';
 import { findSum } from './findSum';
 
-export const findAvg = (arr: obj[][]) => {
+export const findAvg = (arr: ICell[][]): ISimpleCell[] => {
 	const colLength = arr[0].length;
 	const rowLength = arr.length;
-	const finalArr: any = [];
+	const finalArr: ISimpleCell[] = [];
 
 	for (let colCount = 0; colCount < colLength; colCount += 1) {
 		const rowArr: any = [];
@@ -19,6 +19,7 @@ export const findAvg = (arr: obj[][]) => {
 			parentRowSum: 0,
 		};
 	}
+
 	const sum = findSum(finalArr);
 
 	finalArr.forEach(el => {

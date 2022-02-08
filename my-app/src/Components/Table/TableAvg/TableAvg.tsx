@@ -1,11 +1,12 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { FC, useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
+import { RootState } from 'store/store';
+import { findAvg } from 'services/findAvg';
 import styles from './tableAvg.module.scss';
-import { RootState } from '../../../store/store';
-import { findAvg } from '../../../services/findAvg';
 
-function TableAvg() {
+// eslint-disable-next-line react/function-component-definition
+const TableAvg: FC = () => {
 	const avg = useSelector((state: RootState) => state.tableStore.table);
 	const avgArr = useMemo(() => findAvg(avg), [avg]);
 
@@ -46,12 +47,20 @@ function TableAvg() {
 				);
 			})}
 
-			<div className={styles.tdSum} onMouseEnter={()=>{checkAvg(true)}} onMouseLeave={()=>{checkAvg(false)}}> {/* eslint-disable-line */}
+			<div
+				className={styles.tdSum}
+				onMouseEnter={() => {
+					checkAvg(true);
+				}}
+				onMouseLeave={() => {
+					checkAvg(false);
+				}}
+			>
 				{avgPercent[0].parentRowSum}
 			</div>
 			<div className={styles.empty} />
 		</div>
 	);
-}
+};
 
 export default TableAvg;

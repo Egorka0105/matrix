@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import styles from './tableHead.module.scss';
 import { RootState } from '../../../store/store';
 
-function TableHead() {
+// eslint-disable-next-line react/function-component-definition
+const TableHead: FC = () => {
 	const tableHead = useSelector((state: RootState) => state.tableStore.table);
 
 	const th = tableHead[0].map((el, i) => {
@@ -25,6 +26,6 @@ function TableHead() {
 			</div>
 		</div>
 	);
-}
+};
 
 export default TableHead;

@@ -1,23 +1,7 @@
-@import "../../../colors";
+@import "src/assets/colors";
+@import "src/assets/animations";
 
 $tdWidth: 50px;
-
-@keyframes removeRowAnimate {
-
-  0% {
-    transform: rotate(0);
-  }
-  25% {
-    transform: rotate(-45deg);
-  }
-
-  75% {
-    transform: rotate(45deg);
-  }
-  100% {
-    transform: rotate(0);
-  }
-}
 
 .tableBody {
   display: flex;
