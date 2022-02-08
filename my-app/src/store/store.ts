@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import createTableReduser from './tableCreateSlice';
+import tableReduсer from './tableCreateSlice';
 
 const store = configureStore({
 	reducer: {
-		tableStore: createTableReduser,
+		tableStore: tableReduсer,
 	},
 });
 

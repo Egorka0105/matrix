@@ -1,0 +1,49 @@
+@import "src/assets/colors";
+@import "src/assets/mixin";
+
+$tdWidth: 50px;
+.tableAvg {
+  @include displayFlex(row,center);
+  width: 100%;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 10px;
+  color: $avgDigit;
+
+  .tdFirst {
+    color: black;
+    font-weight: 700;
+    margin: 0 10px;
+    padding: 10px;
+    max-width: $tdWidth;
+    width: 100%;
+  }
+
+  .td {
+    max-width: $tdWidth;
+    width: 100%;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    font-weight: 700;
+    margin: 0 10px;
+    background-color: $tableAvgBack;
+  }
+
+  .tdSum {
+    max-width: 100px;
+    width: 100%;
+    cursor: pointer;
+    background-color: $tdBodySum-back;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    font-weight: 700;
+    margin: 0 10px;
+  }
+
+  .empty {
+    max-width: $tdWidth;
+    width: 100%;
+  }
+}

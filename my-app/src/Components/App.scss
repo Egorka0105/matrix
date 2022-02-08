@@ -1,11 +1,9 @@
-@import "/src/colors";
-@import "/src/mixin";
+@import "../assets/colors";
+@import "../assets/mixin";
 
 .App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+  @include displayFlex(column,center,center);
   width: 100%;
   background-color: $start-back;
 }
-
